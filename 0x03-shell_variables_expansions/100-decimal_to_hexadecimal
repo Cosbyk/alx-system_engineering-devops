@@ -1,2 +1,3 @@
 #!/bin/bash
-printf '%xn' $DECIMAL
+DECIMAL="$DECIMAL" HEX=$(echo "obase=16; $DECIMAL" | bc) echo $HEX
+echo
