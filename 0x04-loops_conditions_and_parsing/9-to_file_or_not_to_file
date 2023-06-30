@@ -2,7 +2,7 @@
 # The script displays information of the file `school`
 
 f="school"
-if [ -e "f" ] then
+if [ -e "f" ]; then
   echo "school file exists"
 
   if [ -s "f" ]; then
