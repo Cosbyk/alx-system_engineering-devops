@@ -1,12 +1,4 @@
 #!/usr/bin/env bash
 # This script displays all acive IPv4 IPs on the machine it's executed on.
 
-interfaces=$(ip -o -4 addr show | awk '{print $2}')
-for interface in $interfaces; do
-    ip_addresses=$(ip -o -4 addr show dev $interface | awk '{print $4}')
-    for ip_address in $ip_addresses; do
-        if [[ $ip_address != 127.* ]]; then
-            echo "$ip_address"
-        fi
-    done
-done
+ifconfig | grep -Eo "inet (addr:)?([0-9]*\.){3}[0-9]*" | cut -b 6-
